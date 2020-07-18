@@ -37,7 +37,7 @@ const handler = async (message, args) => {
 
         if (sorted_input.length === 0) await channel.send(templates.no_results);
 
-        const main = await channel.send(`<@${member.user_id}>\n` + templates.header + advice_formatter(sorted_input) + '\n\n' + templates.footer)
+        const main = await channel.send(`<@${member.user_id}>\n` + templates.header + advise_formatter(sorted_input) + '\n\n' + templates.footer)
 
         // Setup for the react
         for (let i = 0; i < sorted_input.length; i++) {
