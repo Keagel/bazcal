@@ -152,19 +152,6 @@ const handler = async (message, args) => {
     }
 }
 
-/**
- * @param {import('discord.js').Message} message 
- */
-export function TradeConverseAdapter (message, entities, nlp_res) {
-    const nums = entities.filter(entity => entity.entity === 'number');
-
-    if (nums.length === 0) throw new Error('I couldn\'t find any balance referenced in your message...');
-
-    if (message.guild) message.channel.send(`<@${message.author.id}> ${nlp_res?.answer || 'Check your channel'}`)
-
-    return handler(message, nums.map(num => num.resolution?.value ?? 0));
-}
-
 function advice_message(sorted_input) {
     let final_message = ''
     for (const item in sorted_input) {
